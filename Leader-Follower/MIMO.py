@@ -62,7 +62,8 @@ grid = np.column_stack([m.ravel() for m in mesh])
 mesh=np.array(mesh)
 
 
-
+k=np.array([1.,1.,1.,1.])
+k=10*k #consensus feedback gain
 
 def A_zeta(i,A,x,d):    #follower-follower consensus error
     xi=np.sum(A[i,:])*x[i+1+d*(M+1)]
@@ -198,8 +199,7 @@ x0=np.random.uniform(a,b,10)    #Initial states
 x0[0]=0
 x0[5]=0
 
-k=np.array([1.,1.,1.,1.])
-k=10*k #consensus feedback gain
+
 
 T=10 #End time
 tn=5000
